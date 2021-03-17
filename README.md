@@ -1,6 +1,6 @@
 # astorbot
 
-Telegram bot que lee api de spotify
+Telegram bot que lee api de spotify @astorPbot
 Challenge del grupo Aprendiendo Tecnologias IT
 
 ## Como funciona
