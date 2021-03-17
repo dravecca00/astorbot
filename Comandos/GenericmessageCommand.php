@@ -51,18 +51,16 @@ class GenericmessageCommand extends SystemCommand
 		
 		if ($message->getPhoto() != null) {
             // foto del qr
-            // http(s)://api.qrserver.com/v1/read-qr-code/?fileurl=[URL-encoded-webaddress-url-to-qrcode-image-file]
           
         } else { //es texto inicia busqueda
  
             $response = Funciones::buscarBanda($texto_ingresado);
             
             $respuestas = json_decode($response, true);
-            //Funciones::dump($respuestas["artists"]["items"]);
+           
             $lista = array();
 
             foreach($respuestas["artists"]["items"] as $k){
-                //Funciones::dump($k["name"]);
                 $boton =  new InlineKeyboardButton(['text' => $k["name"], 'callback_data' => $k["id"]]);
                 array_push($lista, array($boton));
             }
