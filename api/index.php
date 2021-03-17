@@ -1,9 +1,8 @@
 <?php
-//Client ID a913ac1aa00e43a7b9cf4fde8f3fc327
-//Client Secret 1cf55af2249d4543b2b8ef173298afcb
-$client_id = 'a913ac1aa00e43a7b9cf4fde8f3fc327'; // Your client id
-$client_secret = '1cf55af2249d4543b2b8ef173298afcb'; // Your secret
-$redirect_uri = 'https://redengo.com/bots/astorbot/callback.php'; // Your redirect uri
+
+$client_id = 'XX'; // Your client id
+$client_secret = 'XX'; // Your secret
+$redirect_uri = ''; // Your redirect uri
 $yaencode =base64_encode( $client_id.":".$client_secret);
 
 function SendPost($url, $custom_headers){
