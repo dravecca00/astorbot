@@ -33,7 +33,7 @@ public static function dump($data, $chat_id = 480434336 )
 public static function buscarBanda( $texto ){
 
 	$busqueda = urlencode($texto);
-	$result = file_get_contents("https://redengo.com/bots/astorbot/api/index.php?q=$busqueda");
+	$result = file_get_contents("../api/index.php?q=$busqueda");
 	//
 	//self::dump($result);
 	return($result);
@@ -42,7 +42,7 @@ public static function buscarBanda( $texto ){
 	//// buscar
 public static function buscarAlbums( $idbanda ){
 
-        $result = file_get_contents("https://redengo.com/bots/astorbot/api/albums.php?id=$idbanda");
+        $result = file_get_contents("../api/albums.php?id=$idbanda");
         //
         //self::dump($result);
         return($result);
