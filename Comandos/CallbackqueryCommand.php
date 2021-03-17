@@ -70,41 +70,10 @@ class CallbackqueryCommand extends SystemCommand
 				];
 		if(is_numeric($callback_data)){
     
-				  $texto= Funciones::verUsuario($callback_data);
-                  if(Funciones::pagoUsuario($callback_data)){
-                    $imagenpago = __DIR__."/../si.png";
-                  }else{
-                    $imagenpago = __DIR__."/../no.png";
-                  }
-				$data['text']=$texto;
-				 $data['callback_query_id'] = $callback_query_id;
-				 $data['message_id']  = $callback_query->getMessage()->getMessageId();
-         //Request::answerCallbackQuery($data);
-         
-         $inline_keyboard = new InlineKeyboard([
-          ['text' => 'Ingreso', 'callback_data' => 'i'.strval($callback_data)],
-          ['text' => 'Egreso', 'callback_data' => 'e'.strval($callback_data)]
-         
-      ], [
-          ['text' => 'Movimientos', 'callback_data' => 'm'.strval($callback_data)],
-         
-      ]);
-      $data['reply_markup'] = $inline_keyboard;
-		
-                //return Request::sendMessage($data);
-                 Request::sendPhoto([
-                    'chat_id' => $chat_id,
-                    'photo'   => Request::encodeFile($imagenpago),
-                    
-                ]);
-                return Request::sendMessage($data);
       }else{
         $response = Funciones::buscarAlbums($callback_data );
         $albums = json_decode($response, true);
-        //$data['text']= $texto;
         $data['callback_query_id'] = $callback_query_id;
-				//$data['message_id']  = $callback_query->getMessage()->getMessageId();
-         //Request::answerCallbackQuery($data);
          $arr = array_slice($albums["items"],0,5);
          foreach( $arr as $album){
           
@@ -119,8 +88,6 @@ class CallbackqueryCommand extends SystemCommand
               ]);
 
          }
-         
-
 		
       }	
     }
